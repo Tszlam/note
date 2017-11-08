@@ -1,0 +1,62 @@
+{
+	container:'容器',
+	item:'项目'
+}
+{
+	container_attr:{
+		flex-direction:{
+			desc:'主轴方向，项目排列方向',
+			value:{
+				row:'向上',
+				row-reverse:'向下',
+				column:'向右',
+				column-reverse:'向左',
+			}
+		},
+		flex-wrap:{
+			desc:'换行方式',
+			value:{
+				nowrap:'不换行',
+				wrap:'向下排，第一行在上',
+				wrap-reverse:'向上排，第一行在下',
+			}
+		},
+		flex-flow:{
+			desc:'flex-direction和flex-wrap的简写',
+			value:{
+				'<flex-direction> || <flex-wrap>':'默认值为 row wrap'
+			}
+		},
+		justify-content:{
+			desc:'项目在主轴上对齐的方式',
+			value:{
+				flex-start:'靠主轴起点',
+				flex-end:'靠主轴终点',
+				center:'主轴居中',
+				space-betwe:'两端对齐间隔相等',
+				space-around:'项目两侧的间隔相等类似不合并的margin'
+			}
+		},
+		align-items:{
+			desc:'在交轴上的对齐方式',
+			value:{
+				flex-start:'靠交轴起点',
+				flex-end:'靠交轴终点',
+				center:'交轴居中',
+				baseline:'项目的第一行文字的基线对齐',
+				stretch:'项目如果没有设定高度或为auto则占满容器高度'
+			}
+		},
+		align-content:{
+			desc:'多主轴时的对齐方式，一整块对齐',
+			value:{
+				flex-start:'靠交轴起点',
+				flex-end:'靠交轴终点',
+				center:'交轴居中',
+				space-between:'对齐交轴两端间隔相等',
+				space-around:'两侧间隔相等',
+				stretch:'占满交轴'
+			}
+		}
+	}
+}

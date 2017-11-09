@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0; 
+		}
+		.headBodyFoot_page{
+			display: flex;
+			min-height: 100vh;
+			flex-direction:column;
+		}
+		.headBodyFoot_head{
+			height: 5vh;
+			background-color: red;
+		}
+		.headBodyFoot_body{
+			flex:1;
+		}
+		.headBodyFoot_foot{
+			height: 5vh;
+			background-color: yellow;
+		}
+
+		.grail_page{
+			display: flex;
+			min-height: 100vh;
+		}
+		.grail_left{
+			min-height: 100vh;
+			width:100px;
+			background-color: red;
+			order:-1;
+		}
+		.grail_body{
+			min-height: 100vh;
+			flex:1;
+		}
+		.grail_right{
+			min-height: 100vh;
+			width:200px;
+			background-color: blue;
+		}
+
+		.col_body{
+			display: flex;
+			width:100vw;
+		}
+		.col_body div{
+			height:100px;
+		}
+		.col_1{
+			flex:0 0 5%;
+			background-color: #222;
+		}
+		.col_2{
+			flex:0 0 10%;
+			background-color: #444;
+		}
+		.col_3{
+			flex:0 0 15%;
+			background-color: #666;
+		}
+		.col_4{
+			flex:0 0 20%;
+			background-color: #888;
+		}
+		.col_5{
+			flex:0 0 25%;
+			background-color: #aaa;
+		}
+		.col_6{
+			flex:0 0 30%;
+			background-color: #ccc;
+		}
+		.col_7{
+			flex:0 0 35%;
+			background-color: #eee;
+		}
+		.col_8{
+			flex:0 0 40%;
+			background-color: #555;
+		}
+		.col_9{
+			flex:0 0 45%;
+			background-color: #777;
+		}
+		.col_10{
+			flex:0 0 50%;
+			background-color: #999;
+		}
+		.col_11{
+			flex:0 0 55%;
+			background-color: #bbb;
+		}
+		.col_12{
+			flex:0 0 60%;
+			background-color: #ddd;
+		}
+		.col_13{
+			flex:0 0 65%;
+			background-color: #500;
+		}
+		.col_14{
+			flex:0 0 70%;
+			background-color: #700;
+		}
+		.col_15{
+			flex:0 0 75%;
+			background-color: #900;
+		}
+		.col_16{
+			flex:0 0 80%;
+			background-color: #a00;
+		}
+		.col_17{
+			flex:0 0 85%;
+			background-color: #c00;
+		}
+		.col_18{
+			flex:0 0 90%;
+			background-color: #e00;
+		}
+		.col_19{
+			flex:0 0 95%;
+			background-color: #050;
+		}
+		.col_20{
+			flex:0 0 100%;
+			background-color: #070;
+		}
+	</style>
+</head>
+<body>
+	<div class="headBodyFoot_page" style="display:none">
+		<div class="headBodyFoot_head"></div>
+		<div class="headBodyFoot_body"></div>
+		<div class="headBodyFoot_foot"></div>
+	</div>
+	<div class="grail_page" style="display:none">
+		<div class="grail_body"></div>
+		<div class="grail_left"></div>
+		<div class="grail_right"></div>
+	</div>
+	<div class="col_body">
+		<div class="col_9"></div>
+		<div class="col_5"></div>
+		<div class="col_6"></div>
+	</div>
+	<div class="col_body">
+		<div class="col_2"></div>
+		<div class="col_4"></div>
+		<div class="col_6"></div>
+		<div class="col_8"></div>
+	</div>
+</body>
+</html>

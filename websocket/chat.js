@@ -96,7 +96,7 @@ function decodeDataFrame(e) {
     if (frame.Mask) {
         //获取掩码实体
         frame.MaskingKey = [e[i++], e[i++], e[i++], e[i++]];
-        //对数据和掩码做异或运算
+        //对数据和掩码模4做异或
         for (j = 0, s = []; j < frame.PayloadLength; j++)
             s.push(e[i + j] ^ frame.MaskingKey[j % 4]);
     } else s = e.slice(i, frame.PayloadLength); //否则直接使用数据

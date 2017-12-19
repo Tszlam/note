@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>websocket事例</title>
+    <script type="text/javascript" src="vue.min.js"></script>
+    <style>
+        .chatlist {
+            display: inline-block;
+            width: 50%;
+            border: 1px solid black;
+            margin: 10px
+        }
+
+        .mychat {
+            text-align: right;
+        }
+
+        .peoplechat {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="page">
+        <span>你的昵称：</span>
+        <input type="text" v-model="name" @keyup.enter="connect" :disabled="state==1" placeholder="输入昵称">
+        <span>连接状态：
+            <span :style="{'color':state==0?'red':'green'}">{{state==0?'未连接':'已连接'}}</span>
+        </span>
+        <button @click="connect" v-if="state==0">连接</button>
+        <button @click="disconnect" v-else>断开</button>
+        <div class="chatlist" style="display: block;">
+            <input type="text" v-model="mymsg" @keyup.enter="sendMsg">
+            <button @click="sendMsg">发送</button>
+            <p v-for="msg in chat" :class="{'mychat':msg.host=='me','peoplechat':msg.host!='me'}">{{msg.msg}}</p>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            chat: [],
+            mymsg: '',
+            ws: null,
+            name: '',
+            state: 0,
+        },
+        methods: {
+            connect: function () {
+                if (this.name == '') return;
+                if (this.state == 1) return;
+                window.ws = this.ws = new WebSocket("ws://127.0.0.1:8000/");
+                this.ws.onopen = e => {
+                    this.state = 1;
+                    ws.send(JSON.stringify({ name: this.name }));
+                };
+                this.ws.onmessage = this.getData;
+                this.ws.onclose = e => {
+                    this.state = 0;
+                    this.ws = null;
+                    this.chat = [];
+                    this.name = '';
+                };
+            },
+            disconnect: function () {
+                this.ws.close();
+            },
+            getData: function (e) {
+                var msg = e.data;
+                this.chat.push({
+                    host: 'other',
+                    msg: msg
+                });
+            },
+            sendMsg: function () {
+                if (this.state == 0) return;
+                var msg = this.mymsg;
+                this.chat.push({
+                    host: 'me',
+                    msg: msg
+                });
+                msg = JSON.stringify({ msg: msg });
+                this.ws.send(msg);
+                this.mymsg = '';
+            }
+        }
+    })
+</script>
+
+</html>
